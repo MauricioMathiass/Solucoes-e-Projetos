@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background: #005f73;
+}
+
+:global([id]) {
+  scroll-margin-top: 5rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a9396;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005f73;
+}
+.app {
+  overflow-x: hidden;
+}
+
+.section {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease;
+}
+
+.snapSection,
+.footerSnap {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.snapSection {
+  min-height: 100svh;
+  display: flex;
+  align-items: stretch;
+}
+
+.snapSection > * {
+  width: 100%;
+}
+
+.footerSnap {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footerSnap > footer {
+  width: 100%;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (max-width: 1024px), (max-height: 720px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (max-width: 768px) {
+  :global([id]) {
+    scroll-margin-top: 4.5rem;
+  }
+
+  html {
+    scroll-snap-type: none;
+  }
+
+  .snapSection,
+  .footerSnap {
+    min-height: auto;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+}

@@ -1,0 +1,274 @@
+.hero {
+  min-height: 100svh;
+  height: auto;
+  background: linear-gradient(135deg, #005f73, #0a9396);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: clamp(3.5rem, 7svh, 4.75rem) 0 clamp(0.75rem, 2.5svh, 1.5rem);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  color: white;
+}
+
+/* Logo wrapper e estilos - AUMENTADOS */
+.logoWrapper {
+  margin-bottom: clamp(0.75rem, 2svh, 1.25rem);
+  display: flex;
+  justify-content: center;
+}
+
+.heroLogo {
+  max-width: min(680px, 80vw);
+  max-height: 31svh;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.heroLogo:hover {
+  transform: scale(1.02);
+}
+
+.logoFallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.logoFallback span:first-child {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ee9b00;
+}
+
+.logoFallback span:last-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: clamp(2.1rem, 4.6vw, 3.35rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #ee9b00;
+  position: relative;
+  display: inline-block;
+}
+
+.typewriter {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.typewriterText {
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  color: #94d2bd;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.cursor {
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  color: #ee9b00;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  margin-bottom: 1.25rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 0.85rem 1.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btnPrimary {
+  background: #ee9b00;
+  color: white;
+  box-shadow: 0 4px 15px rgba(238,155,0,0.3);
+}
+
+.btnPrimary:hover {
+  background: #cc7b00;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(238,155,0,0.4);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+}
+
+.btnSecondary:hover {
+  background: white;
+  color: #005f73;
+  transform: translateY(-3px);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scrollIndicator p {
+  font-size: 0.78rem;
+  line-height: 1;
+  color: inherit;
+}
+
+.scrollMouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 15px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.scrollMouse::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+  border-radius: 2px;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 0 1.25rem;
+  }
+
+  .heroLogo {
+    max-width: min(420px, 82vw);
+    max-height: 24svh;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .typewriterText, .cursor {
+    font-size: 1.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .logoWrapper {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-height: 560px) {
+  .scrollIndicator {
+    bottom: 12px;
+    left: clamp(1rem, 7vw, 4rem);
+    transform: none;
+  }
+
+  .scrollIndicator p {
+    font-size: 0.65rem;
+  }
+
+  .scrollMouse {
+    width: 22px;
+    height: 34px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+  }
+
+  .scrollMouse::before {
+    width: 3px;
+    height: 6px;
+    top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroLogo {
+    max-width: 260px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+}

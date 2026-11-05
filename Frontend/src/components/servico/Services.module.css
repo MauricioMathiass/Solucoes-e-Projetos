@@ -1,0 +1,370 @@
+.services {
+  min-height: 100svh;
+  padding: clamp(3.25rem, 5.5svh, 4rem) 0 clamp(0.3rem, 1.2svh, 0.75rem);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  color: #005f73;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.7vw, 1.1rem);
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: clamp(0.8rem, 1.55vw, 1.05rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cardIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+  transition: transform 0.3s ease;
+}
+
+.cardIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card h3 {
+  color: #005f73;
+  font-size: clamp(0.86rem, 0.98vw, 1.02rem);
+  margin-bottom: 0.35rem;
+  line-height: 1.18;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  margin-bottom: 0.45rem;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.clickHint {
+  font-size: 0.72rem;
+  color: #0a9396;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .clickHint {
+  opacity: 1;
+}
+
+/* ============================================ */
+/* MODAL VIA PORTAL - CENTRALIZADO PERFEITAMENTE */
+/* ============================================ */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.modal {
+  background: white;
+  border-radius: 24px;
+  width: min(800px, 100%);
+  max-height: calc(100dvh - 4rem);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: default;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: white;
+  border-bottom: 2px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.modalIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modalHeader h2 {
+  flex: 1;
+  color: #005f73;
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: #f0f0f0;
+  color: #e74c3c;
+}
+
+/* Área de conteúdo rolável */
+.modalContentScroll {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modalContentScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalContentScroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modalContentScroll::-webkit-scrollbar-thumb {
+  background: #0a9396;
+  border-radius: 10px;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  flex-wrap: wrap;
+}
+
+.modalLogo {
+  height: 35px;
+  width: auto;
+}
+
+.logoText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #005f73;
+}
+
+.modalDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #0a9396;
+}
+
+.detailsTitle {
+  color: #005f73;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detailsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.detailItem:hover {
+  background: #eef2f3;
+  transform: translateX(5px);
+}
+
+.checkMark {
+  color: #0a9396;
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 20px;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contactBtn {
+  background: linear-gradient(135deg, #ee9b00, #cc7b00);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(238, 155, 0, 0.3);
+}
+
+.closeModalBtn {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.closeModalBtn:hover {
+  background: #e0e0e0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modalOverlay {
+    padding: 1rem;
+  }
+  
+  .modal {
+    max-height: calc(100dvh - 2rem);
+  }
+  
+  .modalHeader {
+    padding: 1rem;
+  }
+  
+  .modalHeader h2 {
+    font-size: 0.9rem;
+  }
+  
+  .modalContentScroll {
+    padding: 1rem;
+  }
+  
+  .modalButtons {
+    flex-direction: column;
+  }
+  
+  .contactBtn, .closeModalBtn {
+    text-align: center;
+  }
+  
+  .logoSection {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modalIcon {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalHeader h2 {
+    font-size: 0.8rem;
+  }
+  
+  .detailItem {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,276 @@
+.about {
+  min-height: 100svh;
+  padding: clamp(3.25rem, 5.5svh, 4rem) 0 clamp(0.3rem, 1.2svh, 0.75rem);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: clamp(1rem, 3svh, 1.8rem);
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  color: #005f73;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0a9396, #ee9b00);
+  border-radius: 3px;
+}
+
+.sectionSubtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Missão e Visão Cards */
+.missionVision {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: clamp(1rem, 3svh, 2rem);
+}
+
+.missionCard, .visionCard {
+  background: white;
+  border-radius: 20px;
+  padding: clamp(1.1rem, 2.2vw, 1.5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.missionCard:hover, .visionCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  margin-bottom: 0.75rem;
+}
+
+.cardIcon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.missionCard h3, .visionCard h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.55rem;
+  color: #005f73;
+}
+
+.missionCard p, .visionCard p {
+  color: #555;
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+.cardDecoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0a9396, #ee9b00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.missionCard:hover .cardDecoration,
+.visionCard:hover .cardDecoration {
+  transform: scaleX(1);
+}
+
+/* Valores Section */
+.valuesSection {
+  margin-bottom: clamp(1rem, 3svh, 2rem);
+}
+
+.valuesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.valuesHeader h3 {
+  font-size: 1.45rem;
+  color: #005f73;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.valueCard {
+  background: white;
+  border-radius: 16px;
+  padding: 1.1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.valueIcon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover .valueIcon {
+  transform: scale(1.1);
+}
+
+.valueCard h4 {
+  font-size: 0.95rem;
+  color: #005f73;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.valueCard p {
+  font-size: 0.76rem;
+  color: #666;
+  line-height: 1.35;
+}
+
+/* Expertise Section */
+.expertise {
+  background: linear-gradient(135deg, #005f73, #0a9396);
+  border-radius: 24px;
+  padding: clamp(1.45rem, 3.2svh, 2.15rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.expertiseContent {
+  position: relative;
+  z-index: 1;
+}
+
+.expertiseContent h3 {
+  font-size: 1.45rem;
+  color: white;
+  margin: 0.6rem 0;
+}
+
+.expertiseContent p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 0.88rem;
+}
+
+.expertiseContent > svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .missionVision {
+    grid-template-columns: 1fr;
+  }
+  
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .missionCard h3, .visionCard h3 {
+    font-size: 1.5rem;
+  }
+  
+  .expertise {
+    padding: 2rem;
+  }
+  
+  .expertiseContent h3 {
+    font-size: 1.5rem;
+  }
+  
+  .expertiseContent p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 2rem 0;
+  }
+  
+  .missionCard, .visionCard {
+    padding: 1.5rem;
+  }
+  
+  .valueCard {
+    padding: 1rem;
+  }
+}

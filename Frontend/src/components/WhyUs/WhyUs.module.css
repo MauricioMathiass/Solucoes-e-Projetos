@@ -1,0 +1,247 @@
+.whyUs {
+  min-height: 100svh;
+  padding: clamp(3.25rem, 5.5svh, 4rem) 0 clamp(0.3rem, 1.2svh, 0.75rem);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  color: #005f73;
+  margin-bottom: 0.65rem;
+}
+
+.sectionTitle span {
+  color: #ee9b00;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle span::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ee9b00, transparent);
+  border-radius: 3px;
+}
+
+.sectionSubtitle {
+  color: #666;
+  font-size: 0.98rem;
+  margin-top: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 1.3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.15rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #005f73, #0a9396, #ee9b00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.cardIcon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.cardIcon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: #005f73;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.35;
+  text-align: center;
+  font-size: 0.78rem;
+}
+
+.cardNumber {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover .cardNumber {
+  color: rgba(0, 95, 115, 0.05);
+  transform: scale(1.1);
+}
+
+.stats {
+  background: linear-gradient(135deg, #005f73, #0a9396);
+  border-radius: 20px;
+  padding: 1.45rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.statItem {
+  position: relative;
+  z-index: 1;
+}
+
+.statNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.statNumber span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.statItem p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.statDivider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .statDivider {
+    width: 50px;
+    height: 1px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cardNumber {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whyUs {
+    padding: 2rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.9rem;
+  }
+}
